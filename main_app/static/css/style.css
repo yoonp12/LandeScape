@@ -1,0 +1,20 @@
+#map{
+    height: 750px;
+    width: 850px;
+    border: black 2px solid;
+    margin: 0px auto;
+}
+/* .caro_img{
+    width: 500px;
+    height: 450px;
+    margin: 20px 0px;
+    border: 2px black solid;
+    border-radius: 5px;
+} */
+.trail_img{
+    border: 3px black solid;
+    border-radius: 5px;
+}
+.data{
+    display: none;
+}
