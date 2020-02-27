@@ -6,7 +6,7 @@ import bcrypt
 
 
 def index(request):
-    return render(request, "valid/index.html")
+    return render(request, "valid/extra.html")
 
 def my_map(request):
     return render(request, "valid/map.html")
