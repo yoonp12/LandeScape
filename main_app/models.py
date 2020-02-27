@@ -4,43 +4,47 @@ import re
 
 
 class UserManager(models.Manager):
-    def register(self, postData):
+    def reg_validator(self, postData):
 
+        #RegEx for email
         EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
-
+        #RegEx for Password
         PASSWORD_REGEX = re.compile(r'^(?=.*?\d)(?=.*?[A-Z])(?=.*?[a-z])[A-Za-z\d,!@#$%^&*+=]{8,}$')
-
         errors = {}
 
-        if len(postData['email']) < 1:
-            errors["email"] = "Email is required"
+    #----Names-----
+        if len(postData['first_name']) < 2:
+            errors['first_name'] = "First name must be at least 2 characters long"
+        if len(postData['last_name']) < 2:
+            errors['last_name'] = "Last name must be at least 2 characters long"
+    #-----Email-----
         if not EMAIL_REGEX.match(postData['email']):
-            errors["email-invalid"] = 'Invalid Email!'
-        check = User.objects.filter(email=postData['email'].lower())
-        if len(check) > 0:
-            errors["email-inuse"] = 'Email already in use'
-
+            errors['email'] = "Please input a valid email address"
+        else:
+            for user in User.objects.all():
+                if postData['email'] == user.email:
+                    error['email'] = "Email already exists in our system! Please login!"
+    #-----Password-----
         if len(postData['password']) < 8:
-            errors['password'] = 'Password is required!'
-        elif not PASSWORD_REGEX.match(postData['password']):
-            errors['password_valid'] = 'Password must contain at least 1 number and capitalization!'
-        
-        if len(postData['password_confirm']) < 1:
-            errors['password_confirm'] = 'Confirm password is required!'
-        elif postData['password_confirm'] != postData['password']:
-            errors['passwords_match'] = 'Password must match Confirm password!'
-
+            errors['password'] = "Password must be at least 8 characters"
+        elif postData['password'] != postData['pass_conf']:
+            errors['pass_conf'] == "Passwords do not match!"
+        return errors
+    
+    def log_validator(self, postData):
+        errors = {}
+        user_info = User.objects.filter(email = postData['email_input'])
+        if not user_info:
+            errors['email_input'] = "Email does not exist. Please register before logging in!"
+        else:
+            user = User.objects.get(email=postData['email_input'])
+            if not bcrypt.checkpw(postData['password_input'].encode(), user.password.encode()):
+                errors['password_input'] = "Password or Email information is not correct!"
         return errors
 
-    def login(self, postData):
+    def not_logged_validator(self, postData):
         errors = {}
-
-        if len(postData['email']) < 1:
-            errors['email'] = 'Email is required'
-
-        if len(postData['password']) < 1:
-            errors['password'] = 'Password is required'
-
+        errors['no'] = "Please log in before entering site."
         return errors
 
 
