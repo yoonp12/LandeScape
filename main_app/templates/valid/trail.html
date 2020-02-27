@@ -18,6 +18,7 @@
         <nav class="navbar navbar-light bg-light">
             <div><h1>{{data.name}}</h1></div>
             <div><h4></h4></div>
+            <a href="/">Home</a>
             <a href="/map">Back</a>
             <a href="/logout">Log Off</a>
         </nav>
@@ -63,9 +64,15 @@
                 
                     });
                 </script>
-                <div class="card-body">
-                    <a href="#" class="card-link">Add to Favorites</a>
-                    <a href="#" class="card-link">Already hiked</a>
+                <div class="card-body d-flex justify-content-start mt-3 mb-3">
+                    <form action="/favorite/{{data.id}}" method="POST">
+                        {% csrf_token %}
+                        <button class="buttons ml-4 mr-4" type="submit">Add to Favorites</button>    
+                    </form>
+                    <form action="/completed/{{data.id}}" method="POST">
+                        {% csrf_token %}
+                        <button class="buttons ml-4" type="submit">Did that!</button>
+                    </form>     
                 </div>
             </div>
             <div class="card" style="width: 30rem;">

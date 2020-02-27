@@ -6,3 +6,4 @@ urlpatterns = [
     path('map', views.my_map),
     path('trail/<int:id>', views.trail),
 ]
+
