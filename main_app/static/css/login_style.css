@@ -1,46 +1,18 @@
-/* body {
-    background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-  } */
-#map{
-    height: 750px;
-    width: 850px;
-    border: black 2px solid;
-    margin: 0px auto;
-}
-/* .caro_img{
-    width: 500px;
-    height: 450px;
-    margin: 20px 0px;
-    border: 2px black solid;
-    border-radius: 5px;
-} */
-.trail_img{
-    border: 3px black solid;
-    border-radius: 5px;
-}
-.data{
-    display: none;
-}
-
-
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: 0.75rem;
   }
   .jumbotron-fluid{
-      background: linear-gradient(#868f96,#537895);
-  }
+    background: linear-gradient(#868f96,#537895);
+}
+  
   .login,
   .image {
     min-height: 100vh;
   }
   
   .bg-image {
-    background-image: url('/static/media/registerimg2.jpg');
+    background-image: url('/static/media/signing.jpg');
     background-size: cover;
     background-position: center;
   }
@@ -117,16 +89,7 @@
     color: #777;
   }
   .container-fluid{
-      background-image: linear-gradient(#537895, #09203f );
-  }
-  .btn-google {
-    color: white;
-    background-color: #537895;
-  }
-  
-  .btn-facebook {
-    color: white;
-    background-color: #537895;
+      background-image: linear-gradient(#537895, #09203f);
   }
   /* Fallback for Edge
   -------------------------------------------------- */
@@ -136,7 +99,7 @@
       display: none;
     }
     .form-label-group input::-ms-input-placeholder {
-      color: #537895;
+      color: #777;
     }
   }
   
