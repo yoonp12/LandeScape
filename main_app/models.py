@@ -25,7 +25,7 @@ class UserManager(models.Manager):
         else:
             for user in User.objects.all():
                 if postData['email'] == user.email:
-                    error['email'] = "Email already exists in our system! Please login!"
+                    errors['email'] = "Email already exists in our system! Please login!"
     #-----Password-----
         if len(postData['password']) < 8:
             errors['password'] = "Password must be at least 8 characters"

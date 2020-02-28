@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="static/css/style.css"> -->
     <title>LandEscape Home</title>
   </head>
 
@@ -21,7 +22,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <h2 class="logo mr-4">LandEscape</h2>
+              <h2 class="logo mr-4 text-white">LandEscape</h2>
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
                   <a class="nav-link" disabled href="/" tabindex="-1" aria-disabled="true">Home <span class="sr-only">(current)</span></a>
@@ -32,6 +33,9 @@
                 <li class="nav-item">
                   <a class="nav-link active" href="/blog">Blog</a>
                 </li>
+                <li class="nav-item active">
+                  <a class="nav-link" disabled href="/profile">Profile</a>
+                </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -39,25 +43,30 @@
               </form>
             </div>
           </nav>
+             
+          
+          <!-- Page Content -->
+          <div class="container">
+            <div class="card border-0 shadow my-5">
+              <div class="card-body p-5">
+                <h1 class="font-weight-light">Welcome to LandEscape</h1>
+                <p class="lead">
+                  
+                   
+                  At LandEscape, we are lovers of the outdoors. We're always exploring, planning our next camping trip, and looking for our next adventure. We are here to make your life easier by providing you with the best hikes and camping grounds in the area of your choosing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, eveniet distinctio? Incidunt sapiente magnam tempore veritatis, expedita a distinctio modi fugit natus, repellendus autem ipsam. Minima facere aspernatur dolorem minus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem ullam, temporibus hic molestiae corporis, dolorum magni natus a dolor labore numquam ipsum tempore enim officia tempora possimus. Natus, qui! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsa suscipit quas voluptatem perspiciatis, explicabo, saepe consequuntur error et maxime hic omnis quos eum libero, laudantium esse recusandae corporis ab.</p>
 
-        <div class="jumbotron">
-            <h1 class="display-4">LandEscape</h1>
-            <p class="lead">Welcome to LandEscape. Spend less time searching for outdoors activities and more time outside!</p>
-            <div class="card bg-dark text-white">
-                {% load static %}
-                <img src="{% static "media/lake_tahoe.jpeg" %}" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title">Lake Tahoe</h5>
-                  <p class="card-text"></p>
-                  <p class="card-text"></p>
-                </div>
+                  <hr>
+                  <a class="btn btn-info btn-lg btn-block text-white" href="/map">Get Started Now</a>
+                  
+                <div style="height: 40px"></div>
+                <p class="lead mb-0" style="text-align: center">Happy Trails!</p>
               </div>
             <hr class="my-4">
             <p>Click to get started!</p>
             <a class="btn btn-info btn-lg" href="/map" role="button">Get started</a>
             <hr>
             <div class="card-columns">
-                <div class="card">
+                <!-- <div class="card">
                     {% load static %}
                   <img src="{% static "media/trails.jpg" %}" class="card-img-top" alt="trails">
                   <div class="card-body">
@@ -93,15 +102,15 @@
                       </small>
                     </footer>
                   </blockquote>
-                </div>
-                <div class="card text-center">
-                  <!-- <div class="card-body">
+                </div> --> -->
+                <!-- <div class="card text-center">
+                  <div class="card-body">
                     <h5 class="card-title">Gone Fishin'?</h5>
                     <p class="card-text">You'll fall for this hook, line, and sinker!</p>
                     <p class="card-text"><small class="text-muted"></small></p>
-                  </div> -->
-                </div>
-                <div class="card">
+                   </div> 
+                </div> -->
+                <!-- <div class="card">
                     {% load static %}
                   <img src="{% static "media/fishing.jpg" %}" class="card-img-top" alt="...">
                 </div>
@@ -117,16 +126,17 @@
                 </div>
                 <div class="card">
                   <div class="card-body">
-                    <!-- <h5 class="card-title">Card title</h5> -->
+                    <h5 class="card-title"></h5>
                     <p class="card-text">“Do not go where the path may lead; go instead where there is no path and leave a trail.”</p>
                     <small class="text-muted">
                         Ralph Waldo Emerson, <cite title="Source Title">Transcendentalist</cite>
-                    <!-- <p class="card-text"><small class="text-muted"> Ralph Waldo Emerson</small></p> -->
+                    <p class="card-text"><small class="text-muted"> </small></p>
                   </div>
                 </div>
-              </div>
-        </div>
-
+              </div> -->
+        </div> 
+    
+        
         
     </div> <!--End of Container-->
 
