@@ -21,7 +21,7 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <h2 class="logo mr-4">LandEscape</h2>
+              <h2 class="logo mr-4 text-white">LandEscape</h2>
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
                   <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -32,6 +32,9 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/blog">Blog</a>
                 </li>
+                <li class="nav-item active">
+                  <a class="nav-link" disabled href="/profile">Profile</a>
+                </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -39,38 +42,41 @@
               </form>
             </div>
           </nav>
-
-        <div class="jumbotron">
-            <h1 class="display-4">About</h1>
-            <p class="lead">At LandEscape, we believe that the great outdoors is an essential part of living a happy and healthy lifestyle. </p>
-            
-            
-            
-        <div class="card">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque assumenda incidunt tenetur. Reiciendis et minima nulla, quasi doloribus dignissimos qui earum vel. Perspiciatis et nihil fugiat culpa quae accusamus itaque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint illum, autem quo ipsa fugiat vero voluptatibus laudantium asperiores tenetur adipisci expedita earum totam est cupiditate illo! Voluptatibus nostrum odit excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quos esse excepturi minima non sed ea assumenda id aperiam, delectus architecto repellat ipsum, similique nostrum, ipsam nesciunt rem! Reiciendis, earum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero laudantium, molestiae inventore delectus deserunt non asperiores facilis. Repudiandae esse a dolores maiores dicta expedita unde voluptas, fugit aperiam minus consectetur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis exercitationem aperiam facere vel labore incidunt minima porro, tenetur itaque numquam iusto libero dolorem beatae, laborum dolor officia laboriosam cum asperiores.
-          </div>
-        </div>
-
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                {% load static %}
-                  <img src="{% static "media/woman_hiking.jpg" %}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                {% load static %}
-                <img src="{% static "media/fishing_rod.jpg" %}" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                {% load static %}
-                <img src="{% static "media/bonfire.jpg" %}" class="d-block w-100" alt="...">
-              </div>
+          <header class="bg-info text-center py-5 mb-4">
+            <div class="container">
+              <h1 class="font-weight-light text-white">Meet the Team</h1>
             </div>
-          </div>
+          </header>
           
-        
-    </div> <!--End of Container-->
+          <!-- Page Content -->
+          <div class="container">
+            <div class="row">
+              <!-- Team Member 1 -->
+              <div class="col-xl-6 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                  {% load static %}
+                  <img src="{% static "media/paul.jpeg" %}" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title mb-0">Paul Yoon</h5>
+                    <div class="card-text text-black-50">Web Developer</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Team Member 2 -->
+              <div class="col-xl-6 col-md-6 mb-4">
+                <div class="card border-0 shadow">
+                  {% load static %}
+                  <img src="{% static "media/Ari.JPG" %}" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title mb-0">Ari Bandong</h5>
+                    <div class="card-text text-black-50">Web Developer</div>
+                  </div>
+                </div>
+              </div>
+
+            <!-- /.row -->
+          
+          </div>  
 
 
   </body>

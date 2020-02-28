@@ -72,13 +72,17 @@ def profile(request):
     url = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ str(id) +"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
     r = requests.get(url)
     data = r.json() 
-    user = User.objects.get(id=request.POST['user_id'])
-    favorites = User.objects.get(id=data['trails'][0]['id'])
+    user = User.objects.get(id=request.session['user_id'])
+    
     
     
     return render(request, 'valid/profile.html')
 
 def favorite(request):
+    url = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ str(id) +"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
+    r = requests.get(url)
+    data = r.json() 
+    favorites = User.objects.get(id=data['trails'][0]['id'])
     return redirect('/profile')
 
 def completed(request):
