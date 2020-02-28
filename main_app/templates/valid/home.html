@@ -49,91 +49,102 @@
           <div class="container">
             <div class="card border-0 shadow my-5">
               <div class="card-body p-5">
-                <h1 class="font-weight-light">Welcome to LandEscape</h1>
+                <h1 class="font-weight-dark">Welcome to LandEscape</h1>
                 <p class="lead">
                   
                    
-                  At LandEscape, we are lovers of the outdoors. We're always exploring, planning our next camping trip, and looking for our next adventure. We are here to make your life easier by providing you with the best hikes and camping grounds in the area of your choosing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, eveniet distinctio? Incidunt sapiente magnam tempore veritatis, expedita a distinctio modi fugit natus, repellendus autem ipsam. Minima facere aspernatur dolorem minus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem ullam, temporibus hic molestiae corporis, dolorum magni natus a dolor labore numquam ipsum tempore enim officia tempora possimus. Natus, qui! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus ipsa suscipit quas voluptatem perspiciatis, explicabo, saepe consequuntur error et maxime hic omnis quos eum libero, laudantium esse recusandae corporis ab.</p>
+                  At LandEscape, we are lovers of the outdoors. We're always exploring, planning our next camping trip, and looking for our next adventure. We are here to make your life easier by providing you with the best hikes and camping grounds in the area of your choosing.</p>
 
                   <hr>
-                  <a class="btn btn-info btn-lg btn-block text-white" href="/map">Get Started Now</a>
+                  <a class="btn btn-primary btn-lg btn-block text-white" href="/map">Find a Hike</a>
                   
-                <div style="height: 40px"></div>
+                  <hr>
+                  <h2 class="font-weight-dark">Create a user profile</h2>
+                  <p class="lead">
+                    Create a user profile and add hikes to your to-do list. Keep track of all the hikes you've completed and tell your friends about all the amazing trails you've discovered. 
+                  </p>
+                  
+                  <hr>
+                  
+                    <div class="d-flex justify-content-center">
+
+                      <a class="btn btn-danger btn-lg btn-block text-white mr-1" href="/register_page">Register</a>
+                      
+                    
+                      <a class="btn btn-success btn-lg btn-block text-white mt-0 ml-1" href="/login_page">Login</a>
+                  
+                    </div>
+                  <hr>
+
+
+                  <div class="card-columns"> 
+                     <div class="card">
+                        {% load static %}
+                      <img src="{% static "media/trails.jpg" %}" class="card-img-top" alt="trails">
+                      <div class="card-body">
+                        <h5 class="card-title">Find the best trails</h5>
+                        <p class="card-text">Get trail name, latitude, longitude, difficulty and weather conditions.</p>
+                      </div>
+                    </div>
+                    <div class="card p-3">
+                      <blockquote class="blockquote mb-0 card-body">
+                        <p>"Takes you off the beaten path and into nature faster than you can say sasquatch!"</p>
+                        <footer class="blockquote-footer">
+                          <small class="text-muted">
+                            Paul Yoon, <cite title="Source Title">App Developer</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div>
+                    <div class="card">
+                        {% load static %}
+                      <img src="{% static "media/tents.jpg" %}" class="card-img-top" alt="tents">
+                      <div class="card-body">
+                        <h5 class="card-title">Search nearby campgrounds</h5>
+                        <p class="card-text">Whether you're glamping or going on a backcountry excursion, find your basecamp.</p>
+                        <p class="card-text"><small class="text-muted"></small></p>
+                      </div>
+                    </div>
+                    <div class="card bg-info text-white text-center p-3">
+                      <blockquote class="blockquote mb-0">
+                        <p>"Easily one of the best tools for the weekend warrior and seasoned outdoorsman alike"</p>
+                        <footer class="blockquote-footer text-white">
+                          <small>
+                            John Muir,<cite title="Source Title">  Probably</cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div> 
+                  
+                    <div class="card">
+                        {% load static %}
+                      <img src="{% static "media/fishing.jpg" %}" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card p-3 text-right">
+                      <blockquote class="blockquote mb-0">
+                        <p>“To explore the diversity of Mother Nature with all five senses and allow it to evolve you as a Human Being is truly Travel”</p>
+                        <footer class="blockquote-footer">
+                          <small class="text-muted">
+                            Sanjay Madan <cite title="Source Title"></cite>
+                          </small>
+                        </footer>
+                      </blockquote>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">“Do not go where the path may lead; go instead where there is no path and leave a trail.”</p>
+                        <small class="text-muted">
+                            Ralph Waldo Emerson, <cite title="Source Title">Transcendentalist</cite>
+                        <p class="card-text"><small class="text-muted"> </small></p>
+                      </div>
+                    </div>
+                  </div> 
+                  
+                <div style="height: 10px"></div>
                 <p class="lead mb-0" style="text-align: center">Happy Trails!</p>
               </div>
-            <hr class="my-4">
-            <p>Click to get started!</p>
-            <a class="btn btn-info btn-lg" href="/map" role="button">Get started</a>
-            <hr>
-            <div class="card-columns">
-                <!-- <div class="card">
-                    {% load static %}
-                  <img src="{% static "media/trails.jpg" %}" class="card-img-top" alt="trails">
-                  <div class="card-body">
-                    <h5 class="card-title">Find the best trails</h5>
-                    <p class="card-text">Get trail name, latitude, longitude, difficulty and weather conditions.</p>
-                  </div>
-                </div>
-                <div class="card p-3">
-                  <blockquote class="blockquote mb-0 card-body">
-                    <p>"Takes you off the beaten path and into nature faster than you can say sasquatch!"</p>
-                    <footer class="blockquote-footer">
-                      <small class="text-muted">
-                        Paul Yoon, <cite title="Source Title">App Developer</cite>
-                      </small>
-                    </footer>
-                  </blockquote>
-                </div>
-                <div class="card">
-                    {% load static %}
-                  <img src="{% static "media/tents.jpg" %}" class="card-img-top" alt="tents">
-                  <div class="card-body">
-                    <h5 class="card-title">Search for nearby campgrounds</h5>
-                    <p class="card-text">Whether you're glamping or going on a backcountry excursion, find your basecamp.</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                  </div>
-                </div>
-                <div class="card bg-info text-white text-center p-3">
-                  <blockquote class="blockquote mb-0">
-                    <p>"Easily one of the best tools for the weekend warrior and seasoned outdoorsman alike"</p>
-                    <footer class="blockquote-footer text-white">
-                      <small>
-                        John Muir,<cite title="Source Title">  Probably</cite>
-                      </small>
-                    </footer>
-                  </blockquote>
-                </div> --> -->
-                <!-- <div class="card text-center">
-                  <div class="card-body">
-                    <h5 class="card-title">Gone Fishin'?</h5>
-                    <p class="card-text">You'll fall for this hook, line, and sinker!</p>
-                    <p class="card-text"><small class="text-muted"></small></p>
-                   </div> 
-                </div> -->
-                <!-- <div class="card">
-                    {% load static %}
-                  <img src="{% static "media/fishing.jpg" %}" class="card-img-top" alt="...">
-                </div>
-                <div class="card p-3 text-right">
-                  <blockquote class="blockquote mb-0">
-                    <p>“To explore the diversity of Mother Nature with all five senses and allow it to evolve you as a Human Being is truly Travel”</p>
-                    <footer class="blockquote-footer">
-                      <small class="text-muted">
-                        Sanjay Madan <cite title="Source Title"></cite>
-                      </small>
-                    </footer>
-                  </blockquote>
-                </div>
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">“Do not go where the path may lead; go instead where there is no path and leave a trail.”</p>
-                    <small class="text-muted">
-                        Ralph Waldo Emerson, <cite title="Source Title">Transcendentalist</cite>
-                    <p class="card-text"><small class="text-muted"> </small></p>
-                  </div>
-                </div>
-              </div> -->
+          
         </div> 
     
         
