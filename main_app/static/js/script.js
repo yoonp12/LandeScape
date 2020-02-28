@@ -59,6 +59,8 @@
                     
                     });
 
+                
+
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode( { latLng: marker.getPosition() }, function ( result, status ) {
                         if ( status == google.maps.GeocoderStatus.OK ) {  

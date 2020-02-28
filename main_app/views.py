@@ -9,18 +9,6 @@ import bcrypt
 # ======================================
 
 def home(request):
-    # if 'user_id' not in request.session:
-    #     errors = User.objects.not_logged_validator(request.POST)
-    #     if len(errors):
-    #         for key, value in errors.items():
-    #             messages.error(request, value)
-    #         return redirect('/')
-    # else:
-    #     user_id = request.session['user_id']
-    #     user = User.objects.get(id=user_id)
-    #     context = {
-    #         'user' : user
-    #     }
     return render(request, 'valid/home.html')
 
 # ======================================
@@ -73,8 +61,48 @@ def logout(request):
 # ======================================
 # Profile, Favorite, Completed 
 # ======================================
+def edit_profile(request):
+    context = {
+        "user" : User.objects.get(id = request.session['user_id'])
+    }
+    return render (request, "valid/edit_profile.html", context)
+
+def change_profile(request):
+    if request.POST:
+        user = User.objects.get(id=request.session["user_id"])
+        user.first_name = request.POST['first_name']
+        user.save()
+    if request.POST: 
+        user = User.objects.get(id=request.session["user_id"])   
+        user.last_name = request.POST['last_name']
+        user.save()
+    if request.POST:  
+        user = User.objects.get(id=request.session["user_id"])  
+        user.email = request.POST['email']
+        user.save()
+    # if request.POST:  
+    #     user = User.objects.get(id=request.session["user_id"])  
+    #     user.password = request.POST['password']
+    #     user.save()
+    if request.POST:  
+        user = User.objects.get(id=request.session["user_id"])  
+        user.hometown = request.POST['hometown']
+        user.save()
+    if request.POST:  
+        user = User.objects.get(id=request.session["user_id"])  
+        user.info = request.POST['bio']
+        user.save()
+    messages.success (request, "Profile was successfully updated!")
+    return redirect("/profile")
 
 def profile(request):
+    if 'user_id' not in request.session:
+        errors = User.objects.not_logged_validator(request.POST)
+        if len(errors):
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/register_page')
+    
     favorites = favoriteTrail.objects.filter(user_id=request.session['user_id'])
     favorites_ids = []
     completed = completedTrail.objects.filter(user_id=request.session['user_id'])
@@ -91,19 +119,33 @@ def profile(request):
     Curl = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ ",".join(completed_ids)+"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
     Cr = requests.get(Curl)
     Cdata = Cr.json() 
+ 
     context = {
         "user" : User.objects.get(id=request.session['user_id']),
         "Fdata" : Fdata['trails'],
         "Cdata" : Cdata['trails'],
-
-
     }
     return render(request, 'valid/profile.html', context)
 
 def favorite(request, id):
-    if request.POST:
+    if 'user_id' not in request.session:
+        errors = User.objects.not_logged_validator(request.POST)
+        if len(errors):
+            for key, value in errors.items():
+                messages.error(request, value)
+            return redirect('/register_page')
+    if 'user_id' in request.session:
         user = User.objects.get(id=request.session["user_id"])
         favorite = favoriteTrail.objects.create(trail_id=id, user=user)
+        return redirect('/profile')
+    else:
+        return render(request, "valid/trail/"+ str(id))
+def Fcompleted(request, id):
+    if request.POST:
+        user = User.objects.get(id=request.session["user_id"])
+        completed = completedTrail.objects.create(trail_id=id, user=user)
+        favorite = favoriteTrail.objects.get(trail_id=id, user=user)
+        favorite.delete()
         return redirect('/profile')
     else:
         return render(request, "valid/trail/"+ str(id))
@@ -112,8 +154,6 @@ def completed(request, id):
     if request.POST:
         user = User.objects.get(id=request.session["user_id"])
         completed = completedTrail.objects.create(trail_id=id, user=user)
-        favorite = favoriteTrail.objects.get(trail_id=id, user=user)
-        favorite.delete()
         return redirect('/profile')
     else:
         return render(request, "valid/trail/"+ str(id))
@@ -140,7 +180,6 @@ def trail(request, id):
     url = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ str(id) +"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
     r = requests.get(url)
     data = r.json() 
-    print(data['trails'][0])
 
     context = {
         'data' : data['trails'][0],

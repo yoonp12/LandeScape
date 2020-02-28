@@ -14,28 +14,31 @@
     
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+        <nav class="navbar navbar-light bg-light navigation"style="width: 90rem;">
             <div><h1>{{data.name}}</h1></div>
-            <div><h4></h4></div>
-            <a href="/">Home</a>
-            <a href="/map">Back</a>
-            <a href="/logout">Log Off</a>
+            <div class="mr-5">
+                <a class="mr-5" href="/">Home</a>
+                <a class="mr-5" href="/map">Back</a>
+                <a class="mr-5" href="/logout">Log Off</a>
+            </div>
         </nav>
+    </div>
     
-        <div class="body d-flex justify-content-around">
-            <div class="card" style="width: 50rem;">
+        <div class="body d-flex justify-content-center trail_backdrop">
+            <div class="card" style="width: 55rem;">
                 <img src="{{data.imgMedium}}" class="card-img-top trail_img" alt="...">
-                    <div class="card-body">
+                    <div class="card-body trail_backdrop">
                         <div id="trail_info"></div>
                         <p class="card-text"></p>
                     </div>
                     
                     <ul class="list-group list-group-flush trail_info">
-                    <li class="list-group-item">Name: <h4>{{data.name}}</h4></li>
-                    <li class="list-group-item">Location: <h4>{{data.location}}</h4></li>
-                    <li class="list-group-item" id="lat" value="{{data.latitude}}" >Latitude: <h4>{{data.latitude}}</h4></li>
-                    <li class="list-group-item" id="lon" value="{{data.latitude}}">Longitude: <h4>{{data.longitude}}</h4></li> 
+                    <li class="list-group-item trail_center">Name: <h4>{{data.name}}</h4></li>
+                    <li class="list-group-item trail_center">Location: <h4>{{data.location}}</h4></li>
+                    <li class="list-group-item trail_center" id="lat" value="{{data.latitude}}" >Latitude: <h4>{{data.latitude}}</h4></li>
+                    <li class="list-group-item trail_center" id="lon" value="{{data.latitude}}">Longitude: <h4>{{data.longitude}}</h4></li> 
                     <!-- <li class="list-group-item">
                     
                     <button id="current_condition">Current Conditions</button> -->
@@ -64,7 +67,7 @@
                 
                     });
                 </script>
-                <div class="card-body d-flex justify-content-start mt-3 mb-3">
+                <div class="card-body d-flex justify-content-start mt-3 mb-3 ">
                     <form action="/favorite/{{data.id}}" method="POST">
                         {% csrf_token %}
                         <button class="buttons ml-4 mr-4" type="submit">Add To Do!</button>    
@@ -75,7 +78,7 @@
                     </form>     
                 </div>
             </div>
-            <div class="card" style="width: 30rem;">
+            <div class="card" style="width: 35rem;">
                 <div class="card-header text-center">
                     <h1>Current Conditions</h1>
                 </div>
