@@ -6,11 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>LandEscape Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/trails.js' %}"></script>
   </head>
 
   <body>
@@ -39,18 +41,95 @@
             </div>
           </nav>
 
-        <div class="jumbotron">
+        <div class="jumbotron-fluid text-center">
             <h1 class="display-4">Profile</h1>
             <p class="lead">At Outdoor Recreation, we believe that the great outdoors is an essential part of living a happy and healthy lifestyle. </p>
-            
-            
-            
-        <div class="card">
+        <div class="d-flex justify-content-around mb-5">  
+        <div class="card ">
           <div class="card-body">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque assumenda incidunt tenetur. Reiciendis et minima nulla, quasi doloribus dignissimos qui earum vel. Perspiciatis et nihil fugiat culpa quae accusamus itaque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint illum, autem quo ipsa fugiat vero voluptatibus laudantium asperiores tenetur adipisci expedita earum totam est cupiditate illo! Voluptatibus nostrum odit excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quos esse excepturi minima non sed ea assumenda id aperiam, delectus architecto repellat ipsum, similique nostrum, ipsam nesciunt rem! Reiciendis, earum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero laudantium, molestiae inventore delectus deserunt non asperiores facilis. Repudiandae esse a dolores maiores dicta expedita unde voluptas, fugit aperiam minus consectetur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis exercitationem aperiam facere vel labore incidunt minima porro, tenetur itaque numquam iusto libero dolorem beatae, laborum dolor officia laboriosam cum asperiores.
           </div>
         </div>
-
+      </div>  
+      </div>
+        
+        <div class="record_body pb-5 d-flex justify-content-around ">
+          <div class="card " style="width: 30rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <div class="data">
+                <p>Profile Details</p>
+                <p>Email Address</p>
+                <p id="email" class="alert alert-danger"></p>
+                </div>
+            </div>
+          
+            <!-- <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div> -->
+          </div>
+          <div class="card  text-center ">
+            <h3 class="card-header">Gotta Do List</h3>
+            <div class="card-body d-flex justify-content-around">
+              <table class="table border border-dark rounded-lg m-3" style="width:40rem;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Trail Name</th>
+                    <th scope="col">Trail Location</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for favorite in Fdata %}
+                  <tr>
+                    <td>{{favorite.name}}</td>
+                    <td>{{favorite.location}}</td>
+                    <td class="text-center">
+                    <form action="/Fremove/{{favorite.id}}">
+                    <button class="mb-1" type="submit">Remove</button>
+                  </form>
+                  <form action="/completed/{{favorite.id}}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Completed</button>
+                  </form>
+                  </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card text-center ">
+            <h3 class="card-header">Completed Trails</h3>
+            <div class="card-body d-flex justify-content-around">
+              <table class="table border border-dark rounded-lg m-3" style="width: 30rem;">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Trail Name</th>
+                    <th scope="col">Trail Location</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for completed in Cdata %}
+                  <tr>
+                    <td>{{completed.name}}</td>
+                    <td>{{completed.location}}</td>
+                    <td class="text-center">
+                      <form action="/Cremove/{{completed.id}}" method="POST">
+                        {% csrf_token %}
+                      <button class="mb-1" type="submit">Remove</button>
+                    </form>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+      
         
         
     </div> <!--End of Container-->

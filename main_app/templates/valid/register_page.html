@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="903065443636-f9kfjh7fk14o39ouv1e57f556ppm8hpm.apps.googleusercontent.com">
+    <!-- Bootstrap CSS, jQuery  -->
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=854227155021587&autoLogAppEvents=1""></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/google_signin.js' %}"></script>
+    <title>LandEscape</title>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+
+      
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">LandEscape</h1>
+                <p class="lead">Your one-stop destinaton for the best Trails, Campgrounds, and Fishing</p>
+            </div>
+        </div>
+
+          <div class="row no-gutter">
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+            <div class="col-md-8 col-lg-6">
+              <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-9 col-lg-8 mx-auto">
+                      <h3 class="login-heading mb-4">Register</h3>
+                      <form action="/register" method="POST">
+                          {% csrf_token %}
+                          <div class="form-label-group">
+                            <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" name="first_name" >
+                            <label for="inputFirstName">First Name</label>
+                          </div> 
+            
+                          <div class="form-label-group">
+                            <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" name="last_name" >
+                            <label for="inputLastName">Last Name</label>
+                          </div>                  
+                          <hr>  
+                          <div class="form-label-group">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email" name="email" >
+                            <label for="inputEmail">Email</label>
+                          </div>
+                          <div class="form-label-group">
+                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" >
+                            <label for="inputPassword">Password</label>
+                          </div>
+                          
+                          <div class="form-label-group">
+                            <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" name="pass_conf" >
+                            <label for="inputConfirmPassword">Confirm password</label>
+                          </div>
+            
+                          <button class="btn btn-lg btn-secondary btn-block text-uppercase" type="submit">Register</button>
+      
+                          <a class="d-block text-center mt-2 small" href="/login_page">Sign In</a>
+                          <hr class="my-4">
+                          
+                          <button type="submit" class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="list-group-item d-flex justify-content-around g-signin2" data-onsuccess="onSignIn"></i></button>
+                          <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="list-group-item d-flex justify-content-around fb-login-button" data-width="200px" data-size="medium" data-button-type="login_with" data-auto-logout-link="true" data-use-continue-as="false""></i></button>
+                        
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+                  <div class="data">
+                    <p>Profile Details</p>
+                    <p>Email Address</p>
+                    <p id="email" class="alert alert-danger"></p>
+                    <button onclick="signOut();">Sign Out</button> <!--END OF LOGIN COL-->
+                  </div> 
+            </div> <!-- END OF ROW -->
+
+        </div>
+    </div>
+
+
+        
+
+</body>
+</html>

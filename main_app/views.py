@@ -26,6 +26,9 @@ def home(request):
 # ======================================
 # Register, Login, and Logout
 # ======================================
+def register_page(request):
+    return render(request, "valid/register_page.html")
+
 
 def register(request):
     if request.POST:
@@ -33,7 +36,7 @@ def register(request):
         if len(errors):
             for key, value in errors.items():
                 messages.error(request, value)
-            return redirect('/login_main')
+            return redirect('/register_page')
 
 
         else:
@@ -47,13 +50,16 @@ def register(request):
             request.session['user_id'] = user.id
             return redirect('/profile')
 
+def login_page(request):
+    return render(request, "valid/login_page.html")
+
 def login(request):
     if request.POST:
         errors = User.objects.log_validator(request.POST)
         if len(errors):
             for key, value in errors.items():
                 messages.error(request, value)
-            return redirect('/login_main')
+            return redirect('/login_page')
 
         else:
             user = User.objects.get(email=request.POST['email_input'])
@@ -69,20 +75,59 @@ def logout(request):
 # ======================================
 
 def profile(request):
-    url = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ str(id) +"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
-    r = requests.get(url)
-    data = r.json() 
-    user = User.objects.get(id=request.POST['user_id'])
-    favorites = User.objects.get(id=data['trails'][0]['id'])
+    favorites = favoriteTrail.objects.filter(user_id=request.session['user_id'])
+    favorites_ids = []
+    completed = completedTrail.objects.filter(user_id=request.session['user_id'])
+    completed_ids = []
+    for favorite in favorites:
+        favorites_ids.append(str(favorite.trail_id))
+    for completed in completed:
+        completed_ids.append(str(completed.trail_id))
     
-    
-    return render(request, 'valid/profile.html')
+    Furl = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ ",".join(favorites_ids) + "&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
+    Fr = requests.get(Furl)
+    Fdata = Fr.json()
 
-def favorite(request):
-    return redirect('/profile')
+    Curl = "https://www.hikingproject.com/data/get-trails-by-id?ids="+ ",".join(completed_ids)+"&key=200692212-0c29a6ccde17f1eeb5873b8087e497d2"
+    Cr = requests.get(Curl)
+    Cdata = Cr.json() 
+    context = {
+        "user" : User.objects.get(id=request.session['user_id']),
+        "Fdata" : Fdata['trails'],
+        "Cdata" : Cdata['trails'],
 
-def completed(request):
-    return redirect('/profile')
+
+    }
+    return render(request, 'valid/profile.html', context)
+
+def favorite(request, id):
+    if request.POST:
+        user = User.objects.get(id=request.session["user_id"])
+        favorite = favoriteTrail.objects.create(trail_id=id, user=user)
+        return redirect('/profile')
+    else:
+        return render(request, "valid/trail/"+ str(id))
+
+def completed(request, id):
+    if request.POST:
+        user = User.objects.get(id=request.session["user_id"])
+        completed = completedTrail.objects.create(trail_id=id, user=user)
+        favorite = favoriteTrail.objects.get(trail_id=id, user=user)
+        favorite.delete()
+        return redirect('/profile')
+    else:
+        return render(request, "valid/trail/"+ str(id))
+
+def Fremove(request,id):
+    a = favoriteTrail.objects.get(trail_id=id)
+    a.delete()
+    return redirect("/profile")
+
+def Cremove(request,id):
+    b = completedTrail.objects.get(trail_id=id)
+    b.delete()
+    return redirect("/profile")
+
 
 # ======================================
 # My map, trail

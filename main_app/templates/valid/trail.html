@@ -67,7 +67,7 @@
                 <div class="card-body d-flex justify-content-start mt-3 mb-3">
                     <form action="/favorite/{{data.id}}" method="POST">
                         {% csrf_token %}
-                        <button class="buttons ml-4 mr-4" type="submit">Add to Favorites</button>    
+                        <button class="buttons ml-4 mr-4" type="submit">Add To Do!</button>    
                     </form>
                     <form action="/completed/{{data.id}}" method="POST">
                         {% csrf_token %}

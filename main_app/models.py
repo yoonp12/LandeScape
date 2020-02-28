@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 import re
+import bcrypt
 
 
 class UserManager(models.Manager):
@@ -58,16 +60,14 @@ class User(models.Model):
 
     objects = UserManager()
 
-class Trail(models.Model):
+class favoriteTrail(models.Model):
     trail_id = models.IntegerField()
-    name = models.CharField(max_length=255)
-    summary = models.TextField()
-    difficulty = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
+    user = models.ForeignKey(User, related_name="favorites", on_delete=models.CASCADE)
 
-    favorite = models.ForeignKey(User, related_name="trails", on_delete=models.CASCADE)
-
-    completed = models.ForeignKey(User, related_name="completed", on_delete=models.CASCADE)
+class completedTrail(models.Model):
+    trail_id = models.IntegerField()
+    user = models.ForeignKey(User, related_name="completed", on_delete=models.CASCADE)
+    
 
 
     def __repr__(self):
