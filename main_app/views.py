@@ -80,10 +80,6 @@ def change_profile(request):
         user = User.objects.get(id=request.session["user_id"])  
         user.email = request.POST['email']
         user.save()
-    # if request.POST:  
-    #     user = User.objects.get(id=request.session["user_id"])  
-    #     user.password = request.POST['password']
-    #     user.save()
     if request.POST:  
         user = User.objects.get(id=request.session["user_id"])  
         user.hometown = request.POST['hometown']
@@ -91,6 +87,10 @@ def change_profile(request):
     if request.POST:  
         user = User.objects.get(id=request.session["user_id"])  
         user.info = request.POST['bio']
+        user.save()
+    if request.FILES:  
+        user = User.objects.get(id=request.session["user_id"])  
+        user.profile_image = request.FILES['profile_image']
         user.save()
     messages.success (request, "Profile was successfully updated!")
     return redirect("/profile")
@@ -122,8 +122,8 @@ def profile(request):
  
     context = {
         "user" : User.objects.get(id=request.session['user_id']),
-        "Fdata" : Fdata['trails'],
-        "Cdata" : Cdata['trails'],
+        "Fdata" : Fdata,
+        "Cdata" : Cdata,
     }
     return render(request, 'valid/profile.html', context)
 

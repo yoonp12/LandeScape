@@ -16,17 +16,6 @@
 <body>
     
     <div class="container-fluid backdrop">
-        <div class="navbar d-flex justify-content-center head_nav">
-        <nav class="navbar navbar-light bg-light w-75 ">
-            <div><h1>{{data.name}}</h1></div>
-            <div><h4></h4></div>
-            <div >
-                <a class="ml-5" href="/dashboard">Home</a>
-                <a class="ml-5" href="/profile">User Profile</a>
-                <a class="ml-5" href="/logout">Log Off</a>
-            </div>
-        </nav>
-        </div> -->
 
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,9 +48,9 @@
           </nav>
 
         <div class="main_body d-flex justify-content-center mt-2">
-            <div class="card text-center w-50 map_backdrop border-0">
+            <div class="card text-center w-50 map_backdrop border-0 shadow p-3 mb-5 bg-white rounded">
                 <h1>The World is Yours to Explore!</h1>
-                <div class="d-flex justify-content-around" id="map"></div>
+                <div class="d-flex justify-content-around shadow p-3 mb-5 bg-white rounded" id="map"></div>
                 <div class="card-body">
                     <label for="">Address: <input class="controls"  id="map-search"type="text" placeholder="Search Box" size="50"></label><br>
                         <label for="">Lat: <input type="text" class="latitude"></label>
@@ -69,7 +58,7 @@
                 </div>
             </div>
             
-            <div class="card w-25">
+            <div class="card w-25 shadow p-3 mb-5 bg-white rounded">
                 <div class="card-header">
                 <h5>Top trails nearby your marker:</h5>
                 </div>

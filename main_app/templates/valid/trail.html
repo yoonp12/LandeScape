@@ -52,17 +52,22 @@
             <a href="/logout">Log Off</a>
         </nav> -->
     
-        <div class="body d-flex justify-content-center trail_backdrop">
-            <div class="card" style="width: 55rem;">
-                <div><h1>{{data.name}} <a href="/map" class="btn btn-primary float-right m-2">Back</a>
-                    </h1></div>
-                <img src="{{data.imgMedium}}" class="card-img-top trail_img" alt="...">
-                    <div class="card-body trail_backdrop">
+        <div class="body d-flex justify-content-center trail_backdrop shadow p-3 mb-5 bg-white rounded">
+            <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 55rem;">
+                <div class="d-flex justify-content-between">
+                    <h1 class="p-2 ">{{data.name}} </h1>
+                    <form action="/map"  method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-warning mt-3 mr-3 ">Back</button>
+                    </form>
+                </div>
+                <img src="{{data.imgMedium}}" class="card-img-top trail_img " alt="...">
+                    <div class="card-body">
                         <div id="trail_info"></div>
                         <p class="card-text"></p>
                     </div>
                     
-                    <ul class="list-group list-group-flush trail_info">
+                    <ul class="list-group list-group-flush trail_info shadow p-3 mb-5 bg-white rounded">
                     <li class="list-group-item trail_center">Name: <h4>{{data.name}}</h4></li>
                     <li class="list-group-item trail_center">Location: <h4>{{data.location}}</h4></li>
                     <li class="list-group-item trail_center" id="lat" value="{{data.latitude}}" >Latitude: <h4>{{data.latitude}}</h4></li>
@@ -98,19 +103,19 @@
                 <div class="card-body d-flex justify-content-start mt-3 mb-3 ">
                     <form action="/favorite/{{data.id}}" method="POST">
                         {% csrf_token %}
-                        <button class="buttons ml-4 mr-4" type="submit">Add To Do!</button>    
+                        <button class="buttons ml-4 mr-4 shadow p-3 mb-5 md-white rounded" type="submit">Add To Do!</button>    
                     </form>
                     <form action="/completed/{{data.id}}" method="POST">
                         {% csrf_token %}
-                        <button class="buttons ml-4" type="submit">Did that!</button>
+                        <button class="buttons ml-4 shadow p-3 mb-5 bg-white rounded" type="submit">Did that!</button>
                     </form>     
                 </div>
             </div>
-            <div class="card" style="width: 35rem;">
+            <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 35rem;">
                 <div class="card-header text-center">
                     <h1>Current Conditions</h1>
                 </div>
-                <ul class="list-group list-group-flush text-center">
+                <ul class="list-group list-group-flush text-center shadow p-3 mb-5 bg-white rounded">
                     <li class="list-group-item current_sky"></li>
                     <li class="list-group-item current_temp"></li>
                     <li class="list-group-item current_humidity"></li>

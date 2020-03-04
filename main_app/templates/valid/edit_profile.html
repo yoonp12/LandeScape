@@ -49,10 +49,10 @@
             <div class="record_body pb-5 d-flex justify-content-around backdrop">
                 <div class="card " style="width: 30rem;">
                   {% load static %}
-                  <img src="{% static "media/paul.jpg" %}" class="card-img-top p-3" alt="Profile Pic">
+                  <img src="{{ user.profile_image.url }}" class="card-img-top p-3" alt="Profile Pic">
                   <div class="card-body">
                     <!-- <div class="data"> -->
-                      <form action="/change_profile" method="POST">
+                      <form action="/change_profile" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                       <div class="person_data">
                         <table class="table table-hover">
@@ -78,6 +78,10 @@
                               <tr>
                                 <th scope="row">User Bio:</th>
                                 <th><textarea type="text" name="bio" class="form-control" row="4" value="{{user.info}}"></textarea></th>   
+                              </tr>
+                              <tr>
+                                <th scope="row">Profile Pic:</th>
+                                  <th><input type="file" class="form-control" name="profile_image"></th>
                               </tr>
                             </tbody>
                         </table>   

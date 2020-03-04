@@ -18,7 +18,7 @@
   <body>
     <div class="container-fluid">
         
-        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navigtaion">
+        <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navigtaion ">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -44,22 +44,16 @@
             </div>
           </nav>
 
-        <div class="jumbotron-fluid text-center">
-            <h1 class="display-4">Profile</h1>
-            <p class="lead">At Outdoor Recreation, we believe that the great outdoors is an essential part of living a happy and healthy lifestyle. </p>
-        <div class="d-flex justify-content-around mb-5">  
-        <div class="card ">
-          <div class="card-body">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque assumenda incidunt tenetur. Reiciendis et minima nulla, quasi doloribus dignissimos qui earum vel. Perspiciatis et nihil fugiat culpa quae accusamus itaque? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint illum, autem quo ipsa fugiat vero voluptatibus laudantium asperiores tenetur adipisci expedita earum totam est cupiditate illo! Voluptatibus nostrum odit excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quos esse excepturi minima non sed ea assumenda id aperiam, delectus architecto repellat ipsum, similique nostrum, ipsam nesciunt rem! Reiciendis, earum? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero laudantium, molestiae inventore delectus deserunt non asperiores facilis. Repudiandae esse a dolores maiores dicta expedita unde voluptas, fugit aperiam minus consectetur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis exercitationem aperiam facere vel labore incidunt minima porro, tenetur itaque numquam iusto libero dolorem beatae, laborum dolor officia laboriosam cum asperiores.
-          </div>
-        </div>
-      </div>  
-      </div>
         
-        <div class="record_body pb-5 d-flex justify-content-around ">
-          <div class="card " style="width: 30rem;">
+        
+        <div class="record_body pb-5 pt-5 d-flex justify-content-around ">
+          <div class="card rounded shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
             {% load static %}
-            <img src="{% static "media/paul.jpg" %}" class="card-img-top p-3 border-bottom" alt="Profile Pic">
+            {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" class="card-img-top p-3 border-bottom shadow p-3 mb-5 bg-white rounded" alt="Profile Pic">
+            {% else %}
+            <img src="{% static 'media/default.jpg' %}" class="card-img-top p-3 border-bottom shadow p-3 mb-5 bg-white rounded" alt="Profile Pic">
+            {% endif %}
             <div class="card-body" style="position: relative">
               <!-- <div class="data"> -->
                 
@@ -83,15 +77,12 @@
                 <!-- </div> -->
             </div>
           
-            <!-- <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div> -->
+          
           </div>
-          <div class="card  text-center ">
+          <div class="card  text-center shadow p-3 mb-5 bg-white rounded">
             <h3 class="card-header">Gotta Do List</h3>
             <div class="card-body d-flex justify-content-around">
-              <table class="table border border-dark rounded-lg m-3" style="width:40rem;">
+              <table class="table border border-dark rounded-lg m-3 shadow p-3 mb-5 bg-white rounded" style="width:40rem;">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Trail Name</th>
@@ -100,7 +91,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for favorite in Fdata %}
+                  {% for favorite in Fdata.trails %}
                   <tr>
                     <td>{{favorite.name}}</td>
                     <td>{{favorite.location}}</td>
@@ -115,14 +106,15 @@
                   </td>
                   </tr>
                   {% endfor %}
+                  
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="card text-center ">
+          <div class="card text-center shadow p-3 mb-5 bg-white rounded">
             <h3 class="card-header">Completed Trails</h3>
             <div class="card-body d-flex justify-content-around">
-              <table class="table border border-dark rounded-lg m-3" style="width: 30rem;">
+              <table class="table border border-dark rounded-lg m-3 shadow p-3 mb-5 bg-white rounded" style="width: 30rem;">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Trail Name</th>
@@ -131,7 +123,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for completed in Cdata %}
+                  {% for completed in Cdata.trails %}
                   <tr>
                     <td>{{completed.name}}</td>
                     <td>{{completed.location}}</td>

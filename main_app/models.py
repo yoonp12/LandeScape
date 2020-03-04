@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
+from django import forms
 import re
 import bcrypt
 
@@ -57,10 +58,12 @@ class User(models.Model):
     password = models.CharField(max_length = 200)
     hometown = models.CharField(max_length=200)
     info = models.TextField()
+    profile_image = models.ImageField(upload_to="users/", null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = UserManager()
+
 
 class favoriteTrail(models.Model):
     trail_id = models.IntegerField()

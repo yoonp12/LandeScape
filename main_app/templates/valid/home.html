@@ -6,11 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="static/css/style.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
     <title>LandEscape Home</title>
   </head>
 
@@ -47,8 +49,8 @@
           
           <!-- Page Content -->
           <div class="container">
-            <div class="card border-0 shadow my-5">
-              <div class="card-body p-5">
+            <div class="card border-0 shadow my-5 shadow p-3 mb-5 bg-white rounded">
+              <div class="card-body p-5 shadow p-3 mb-5 bg-white rounded">
                 <h1 class="font-weight-dark">Welcome to LandEscape</h1>
                 <p class="lead">
                   
@@ -68,7 +70,7 @@
                   
                     <div class="d-flex justify-content-center">
 
-                      <a class="btn btn-danger btn-lg btn-block text-white mr-1" href="/register_page">Register</a>
+                      <a class="btn btn-danger btn-lg btn-block text-white mr-1 " href="/register_page">Register</a>
                       
                     
                       <a class="btn btn-success btn-lg btn-block text-white mt-0 ml-1" href="/login_page">Login</a>
@@ -78,7 +80,7 @@
 
 
                   <div class="card-columns"> 
-                     <div class="card">
+                     <div class="card shadow p-3 mb-5 bg-white rounded">
                         {% load static %}
                       <img src="{% static "media/trails.jpg" %}" class="card-img-top" alt="trails">
                       <div class="card-body">
@@ -86,7 +88,7 @@
                         <p class="card-text">Get trail name, latitude, longitude, difficulty and weather conditions.</p>
                       </div>
                     </div>
-                    <div class="card p-3">
+                    <div class="card p-3 shadow p-3 mb-5 bg-white rounded">
                       <blockquote class="blockquote mb-0 card-body">
                         <p>"Takes you off the beaten path and into nature faster than you can say sasquatch!"</p>
                         <footer class="blockquote-footer">
@@ -96,7 +98,7 @@
                         </footer>
                       </blockquote>
                     </div>
-                    <div class="card">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
                         {% load static %}
                       <img src="{% static "media/tents.jpg" %}" class="card-img-top" alt="tents">
                       <div class="card-body">
@@ -105,7 +107,7 @@
                         <p class="card-text"><small class="text-muted"></small></p>
                       </div>
                     </div>
-                    <div class="card bg-info text-white text-center p-3">
+                    <div class="card bg-info text-white text-center p-3 shadow p-3 mb-5 bg-white rounded">
                       <blockquote class="blockquote mb-0">
                         <p>"Easily one of the best tools for the weekend warrior and seasoned outdoorsman alike"</p>
                         <footer class="blockquote-footer text-white">
@@ -116,11 +118,11 @@
                       </blockquote>
                     </div> 
                   
-                    <div class="card">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
                         {% load static %}
-                      <img src="{% static "media/fishing.jpg" %}" class="card-img-top" alt="...">
+                      <img src="{% static "media/fishing.jpg" %}" class="card-img-top " alt="...">
                     </div>
-                    <div class="card p-3 text-right">
+                    <div class="card p-3 text-righ shadow p-3 mb-5 bg-white rounded">
                       <blockquote class="blockquote mb-0">
                         <p>“To explore the diversity of Mother Nature with all five senses and allow it to evolve you as a Human Being is truly Travel”</p>
                         <footer class="blockquote-footer">
@@ -130,7 +132,7 @@
                         </footer>
                       </blockquote>
                     </div>
-                    <div class="card">
+                    <div class="card shadow p-3 mb-5 bg-white rounded">
                       <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">“Do not go where the path may lead; go instead where there is no path and leave a trail.”</p>
