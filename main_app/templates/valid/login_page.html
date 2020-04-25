@@ -19,15 +19,15 @@
     <title>LandEscape</title>
   </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid ">
         <div class="jumbotron jumbotron-fluid shadow p-3 mb-5 bg-white rounded">
-            <div class="container">
+            <div class="container-fluid">
                 <h1 class="display-4">LandEscape</h1>
                 <p class="lead">Your one-stop destinaton for the best Trails, Campgrounds, and Fishing</p>
             </div>
         </div>
 
-        <div class="row no-gutter">
+        <div class=" d-flex justify-content-between">
           <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image shadow p-3 mb-5 bg-white rounded"></div>
           <div class="col-md-8 col-lg-6">
             <div class="login d-flex align-items-center py-5">
@@ -36,26 +36,30 @@
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">Welcome back!</h3>
                     <form action="/login" method="POST">
+
                         {% csrf_token %}
                       <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" name="email_input" placeholder="Email address">
-                        <label for="inputEmail">Email address</label>
+                          <input type="email" id="inputEmail" class="form-control" name="email_input" placeholder="Email address">
+                          <label for="inputEmail">Email address</label>
                       </div>
       
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" name="password_input" placeholder="Password">
-                        <label for="inputPassword">Password</label>
+                          <input type="password" id="inputPassword" class="form-control" name="password_input" placeholder="Password">
+                          <label for="inputPassword">Password</label>
                       </div>
       
                       <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                          <input type="checkbox" class="custom-control-input" id="customCheck1">
+                          <label class="custom-control-label" for="customCheck1">Remember password</label>
                       </div>
-                      <button class="btn btn-sm btn btn-light btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
+
+                        <button class="btn btn-sm btn btn-light btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button>
                     </form>
+
                     <form action="/register_page">
-                            <button class="btn btn-sm btn btn-light btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Not a Member?</button>
-                        </form>
+                        <button class="btn btn-sm btn btn-light btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Not a Member?</button>
+                    </form>
+
                   </div>
                 </div>
               </div>

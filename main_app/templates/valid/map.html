@@ -47,36 +47,44 @@
             </div>
           </nav>
 
-        <div class="main_body d-flex justify-content-center mt-2">
-            <div class="card text-center w-50 map_backdrop border-0 shadow p-3 mb-5 bg-white rounded">
-                <h1>The World is Yours to Explore!</h1>
+        
+        <div class=" text-center main_body mt-2">
+          <h1>The World is Yours to Explore!</h1>
+            <div class="d-flex justify-content-around text-around map_backdrop border-0 shadow p-3 bg-white rounded">
+
+              <div class="card w-50 shadow p-3 mb-5 bg-white rounded">
                 <div class="d-flex justify-content-around shadow p-3 mb-5 bg-white rounded" id="map"></div>
-                <div class="card-body">
-                    <label for="">Address: <input class="controls"  id="map-search"type="text" placeholder="Search Box" size="50"></label><br>
-                        <label for="">Lat: <input type="text" class="latitude"></label>
-                        <label for="">Long: <input type="text" class="longitude"></label>
-                </div>
-            </div>
-            
-            <div class="card w-25 shadow p-3 mb-5 bg-white rounded">
+              </div>
+
+              <div class="card shadow p-3 mb-5 bg-white rounded">
+
                 <div class="card-header">
-                <h5>Top trails nearby your marker:</h5>
+                    <h5>Top trails nearby your marker:</h5>
                 </div>
-                <div class="card-body overflow-auto" style="height: 450px">
-                    <table class="table table-striped" >
-                        <thead>
+                    <div class="card-body overflow-auto" style="height: 450px">
+
+                        <table class="table table-striped" >
+                          <thead>
                             <tr>
-                                <th scope="col">iD:</th>
-                                <th scope="col">Trail Name:</th>
-                                <th scope="col">Rating:</th>
+                              <th scope="col">iD:</th>
+                              <th scope="col">Trail Name:</th>
+                              <th scope="col">Rating:</th>
                             </tr>
-                        </thead>
-                        <tbody id="trail_info">
-                            
-                        </tbody>
-                      </table>
-                </div>
+                          </thead>
+                          <tbody id="trail_info">
+                          </tbody>
+                        </table>
+
+                    </div>
+              </div>
             </div>
+
+              <div class="card-body">
+                <label>Address: <input class="controls"  id="map-search"type="text" placeholder="Search Box" size="50"></label><br>
+                <label>Lat: <input type="text" class="latitude"></label>
+                <label>Long: <input type="text" class="longitude"></label>
+              </div>
+            
         </div>
 
     </div>
